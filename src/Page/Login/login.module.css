@@ -1,3 +1,102 @@
 .login {
-    background-color: var(--root-color);
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    .welcome {
+        color: var(--root-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        h1 {
+            font-weight: bolder !important;
+        }
+
+        h3 {
+            font-weight: 500 !important;
+            color: #65aeff;
+        }
+    }
+}
+
+.formWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 5px;
+}
+
+.form {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.outlined {
+    font-size: 14px;
+    width: 100% !important;
+    max-width: 400px;
+    color: white !important;
+    background-color: var(--accent-color);
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    text-transform: capitalize !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.adornment {
+    border-radius: 10px !important;
+    font-weight: 00 !important;
+}
+
+.icon {
+    color: var(--root-color) !important;
+    cursor: pointer;
+}
+
+.input {
+    font-family: "Plus Jakarta Sans";
+    font-weight: 500;
+}
+
+.sign {
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.form button {
+    background: var(--root-color) !important;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .form {
+        width: 80% !important;
+    }
 }

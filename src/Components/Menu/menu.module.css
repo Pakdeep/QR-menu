@@ -3,6 +3,32 @@
     flex-direction: column;
     align-items: center;
 
+    .bottom {
+        height: 50px;
+        margin-top: 20px;
+        max-width: 850px;
+        width: 100%;
+        background-color: var(--root-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 5px;
+
+        .right {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background-color: white !important;
+            color: var(--root-color) !important;
+        }
+
+    }
+
     h1 {
         color: var(--root-color);
     }
@@ -10,27 +36,58 @@
     .menu {
         display: flex;
         justify-content: space-between;
-        width: 60%;
-        margin-top: 20px;
+        max-width: 850px;
+        width: 100%;
+        margin-top: 15px;
+        border-bottom: 1px solid var(--root-color);
 
         .left {
             display: flex;
             gap: 20px;
             align-items: center;
+            font-size: 1rem;
 
             img {
                 border: 1px solid var(--root-color);
                 padding: 3px;
                 border-radius: 10px;
                 width: 150px;
+                height: 120px;
+                margin-bottom: 5px;
+            }
+
+            .desc {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                .price {
+                    color: var(--root-color);
+                }
             }
         }
 
         .right {
             display: flex;
-            gap: 20px;
+            gap: 10px;
             align-items: center;
+
+            button {
+                /* border: 1px solid var(--root-color); */
+                border: none;
+                color: var(--root-color);
+                font-size: 1rem;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                background: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
         }
+
     }
 }
 
@@ -38,13 +95,21 @@
     .menuWrapper {
         .menu {
             width: 100%;
-            padding-right: 20px;
-            padding-left: 20px;
 
             .left {
                 img {
                     width: 100px;
+                    height: 100px;
                 }
+            }
+        }
+
+        .bottom {
+            width: 100%;
+            text-transform: capitalize;
+
+            span {
+                display: none;
             }
         }
 
