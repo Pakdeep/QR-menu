@@ -1,0 +1,12 @@
+:root {
+    --root-color: #007bff;
+    --accent-color: #394855;
+    --accent-color-1: #1976d2;
+    --none-color: unset;
+    --kibo-360: #ec008c;
+    --bg-color: #f8f9fa;
+    --max-width: 76vw;
+    --error: #d32f2f;
+    --error-bg: rgba(211, 47, 47, 0.1);
+    --accent-color-25: rgba(25, 118, 210, 0.25);
+}
