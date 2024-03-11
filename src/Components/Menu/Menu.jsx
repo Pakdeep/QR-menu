@@ -6,9 +6,37 @@ import chicken from "./Assets/items/chicken.webp";
 import mutton from "./Assets/items/mutton.jpeg";
 import vegBiryani from "./Assets/items/vegBiryani.jpeg";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Menu = () => {
-  const [order, setOrder] = useState([]);
+  // State to store the quantity of each item
+  const [itemQuantities, setItemQuantities] = useState({});
+  const [items, setItems] = useState({});
+
+  // Function to handle increasing quantity
+  const increaseQuantity = (itemId, item) => {
+    const newQuantities = { ...itemQuantities };
+    const newItems = { ...items };
+    if (newItems.hasOwnProperty(itemId)) {
+      newItems[itemId].count = (newItems[itemId].count || 0) + 1;
+    } else {
+      newItems[itemId] = { ...item, count: 1 };
+    }
+    newQuantities[itemId] = (newQuantities[itemId] || 0) + 1;
+    calculateTotalCount(newQuantities);
+    setItemQuantities(newQuantities);
+    setItems(newItems);
+  };
+  console.log(items);
+  // Function to handle decreasing quantity
+  const decreaseQuantity = (itemId, item) => {
+    const newQuantities = { ...itemQuantities };
+    if (newQuantities[itemId] && newQuantities[itemId] > 0) {
+      newQuantities[itemId] -= 1;
+      calculateTotalCount(newQuantities);
+      setItemQuantities(newQuantities);
+    }
+  };
+
   const menuItems = [
     {
       id: 1,
@@ -51,7 +79,7 @@ const Menu = () => {
       count: 0,
     },
     {
-      id: 4,
+      id: 6,
       itemName: "Veg Biryani",
       price: "110",
       src: vegBiryani,
@@ -59,7 +87,7 @@ const Menu = () => {
       count: 0,
     },
     {
-      id: 5,
+      id: 7,
       itemName: "Biryani",
       price: "120",
       src: fishBiryani,
@@ -67,6 +95,14 @@ const Menu = () => {
       count: 0,
     },
   ];
+  const [totalCount, setTotalCount] = useState(0);
+  const calculateTotalCount = (items) => {
+    let sum = 0;
+    Object.keys(items).forEach((item, index) => {
+      sum = sum + items[item];
+    });
+    setTotalCount(sum);
+  };
   return (
     <div className={styles.menuWrapper}>
       <h1>Menu</h1>
@@ -81,18 +117,29 @@ const Menu = () => {
               </div>
             </div>
             <div className={styles.right}>
-              <button disabled={item.count == 0} onClick={() => {}}>
+              <button
+                disabled={item.id == 0}
+                onClick={() => {
+                  decreaseQuantity(item.id, item);
+                }}
+              >
                 -
               </button>
-              <div className={styles.count}>{item.count}</div>
-              <button onClick={() => {}}>+</button>
+              <div className={styles.count}>{itemQuantities[item.id] || 0}</div>
+              <button
+                onClick={() => {
+                  increaseQuantity(item.id, item);
+                }}
+              >
+                +
+              </button>
             </div>
           </div>
         );
       })}
       <div className={styles.bottom}>
         <div>
-          <span>Total</span> items <span>bought</span> {order.length}
+          <span>Total</span> items <span>bought</span> {totalCount}
         </div>
         <div className={styles.right}>
           <span>Total price</span> &#8377; XXX
