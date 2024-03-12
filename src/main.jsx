@@ -5,15 +5,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from './page/Login';
+// import Login from './page/Login';
 import App from './App';
 const router = createBrowserRouter([
+  // {
+  //   path: "login",
+  //   element: <Login />,
+  // },
   {
     path: "/",
-    element: <Login />,
-  },
-  {
-    path: "home",
     element: <App />,
   },
 ]);

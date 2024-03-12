@@ -154,7 +154,7 @@ const Login = () => {
                             width: "90% !important",
                         }}
                         onClick={() => {
-                            navigate("/home")
+                            navigate("/")
                             // console.log(details)
                         }}>
                         Sign up
